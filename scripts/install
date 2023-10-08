@@ -43,16 +43,26 @@ ynh_add_systemd_config
 yunohost service add $app --description="A short description of the app" --log="/var/log/$app/$app.log"
 
 #=================================================
+# BUILD YARN DEPENDENCIES
+#=================================================
+ynh_script_progression --message="Building Yarn dependencies..."
+
+pushd "$install_dir"
+	ynh_use_nodejs
+	ynh_exec_warn_less ynh_exec_as $app env $ynh_node_load_PATH $ynh_npm install
+popd
+
+#=================================================
 # APP INITIAL CONFIGURATION
 #=================================================
 # ADD A CONFIGURATION
 #=================================================
 ynh_script_progression --message="Adding a configuration file..." --weight=1
 
-ynh_add_config --template="some_config_file" --destination="$install_dir/some_config_file"
+ynh_add_config --template="../conf/rtc_config.json" --destination="$install_dir/rtc_config.json"
 
-chmod 400 "$install_dir/some_config_file"
-chown $app:$app "$install_dir/some_config_file"
+chmod 400 "$install_dir/rtc_config.json"
+chown $app:$app "$install_dir/rtc_config.json"
 
 #=================================================
 # GENERIC FINALIZATION
