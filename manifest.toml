@@ -12,7 +12,7 @@ version = "1.8.2~ynh1"
 maintainers = ["eric_G"]
 
 [upstream]
-license = "free"
+license = "AGPL-3.0-only"
 website = "https://pairdrop.net/"
 admindoc = "https://github.com/schlagmichdoch/PairDrop/blob/master/docs/host-your-own.md"
 code = "https://github.com/schlagmichdoch/PairDrop"
