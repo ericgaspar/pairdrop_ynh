@@ -45,23 +45,13 @@ ram.runtime = "50M"
         [resources.sources.main]
         url = "https://github.com/schlagmichdoch/PairDrop/archive/refs/tags/v1.8.2.tar.gz"
         sha256 = "901196644912db06dd732357dd0f8088c75bd17589fcbfcb64a139a989225d14"
-
         autoupdate.strategy = "latest_github_tag"
 
     [resources.system_user]
 
     [resources.install_dir]
 
-    [resources.data_dir]
-
     [resources.permissions]
     main.url = "/"
 
     [resources.ports]
-
-    [resources.apt]
-    packages = "deb1, deb2, php8.0-foo, php8.0-bar"
-
-    [resources.database]
-    # This will automatically provision/deprovison a MySQL DB and store the corresponding credentials in settings $db_user, $db_name, $db_pwd
-    type = "mysql"
